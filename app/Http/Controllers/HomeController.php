@@ -101,4 +101,16 @@ class HomeController extends Controller
         return redirect()->back()->with('message','Book removed from Cart');
     }
 
+    public function search()
+    {
+        return view('home.search');
+    }
+
+    public function search_author(Request $req)
+    {
+        $s = $req->search;
+        $cart = product::where('author', 'LIKE', "%$s%")->orWhere('category', 'LIKE', "%$s%")->orWhere('title', 'LIKE', "%$s%")->get();
+        return view('home.search_result',compact('cart','s'));
+
+    }
 }

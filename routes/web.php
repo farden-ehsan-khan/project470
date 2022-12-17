@@ -63,5 +63,9 @@ Route::get('/show_cart', [HomeController::class, 'show_cart']);
 
 Route::get('/delete_cart/{id}', [HomeController::class, 'delete_cart']);
 
+Route::get('/search', [HomeController::class, 'search']);
+
+Route::post('/search_author', [HomeController::class, 'search_author']);
+
 
 
