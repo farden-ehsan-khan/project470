@@ -83,7 +83,7 @@
 
                 <div class="div_center">
 
-                    <h1 class="font_size">Show Product</h1>
+                    <h1 class="font_size">Show Books</h1>
 
                     <table class="center">
                         <tr class="th_color">
