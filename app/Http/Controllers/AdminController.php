@@ -8,6 +8,8 @@ use App\Models\Category;
 
 use App\Models\Product;
 
+use App\Models\User;
+
 class AdminController extends Controller
 {
     //
@@ -123,4 +125,21 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message','Product updated Successfully');
     }
+
+    public function view_users()
+    {
+        $user = user::where('usertype','=','0')->get();
+        return view('admin.view_users',compact('user'));
+    }
+
+    public function delete_user($id)
+    {
+        $data = user::find($id);
+
+        $data->delete();
+
+        return redirect()->back()->with('message','User deleted Successfully');
+
+    }
+
 }

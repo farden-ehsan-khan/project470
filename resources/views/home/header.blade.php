@@ -18,7 +18,7 @@
                            </ul>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="product.html">Products</a>
+                           <a class="nav-link" href="{{url('show_order')}}">Orders</a>
                         </li>
                         
                         <li class="nav-item">

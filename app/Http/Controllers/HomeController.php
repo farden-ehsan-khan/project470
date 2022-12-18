@@ -12,6 +12,8 @@ use App\Models\Product;
 
 use App\Models\Cart;
 
+use App\Models\Order;
+
 class HomeController extends Controller
 {
     // new
@@ -113,4 +115,60 @@ class HomeController extends Controller
         return view('home.search_result',compact('cart','s'));
 
     }
+
+    public function add_order()
+    {
+        $user = Auth::user();
+        $userid = $user->id;
+        
+        $data = cart::where('user_id','=',$userid)->get();
+        
+        foreach($data as $d)
+        {
+            $order = new order;
+
+            $order->name = $d->name;
+            $order->email = $d->email;
+            $order->phone = $d->phone;
+            $order->address = $d->address;
+
+            $order->product_title = $d->product_title;
+            $order->quantity = $d->quantity;
+            $order->duration = $d->duration;
+            $order->image = $d->image;
+
+            $order->product_id = $d->product_id;
+
+            $order->user_id = $d->user_id;
+
+            $order->payment_status = 'unpaid';
+
+            $order->delivery_status = 'processing';
+
+            $order->save();
+
+            $cart_id = $d->id;
+            $cart = cart::find($cart_id);
+            $cart->delete();
+            
+        }
+
+        return redirect()->back()->with('message','Order has been placed');
+    }
+
+    public function show_order()
+    {
+        if(Auth::id())
+        {
+            $id = Auth::user()->id;
+            $order = order::where('user_id', '=', $id)->get();
+            return view('home.show_order',compact('order'));
+        }
+        else
+        {
+            return redirect('login');
+        }
+        
+    }
+
 }

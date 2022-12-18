@@ -98,7 +98,7 @@
 
          <div class="div_center">
 
-            <h1 class="font_size">Show Cart</h1>
+            <h1 class="font_size">Show Orders</h1>
 
             <table class="center">
                 <tr class="th_color">
@@ -106,29 +106,27 @@
                     <th class="th_design">Quantity</th>
                     <th class="th_design">Duration</th>
                     <th class="th_design" style="padding: 30px">Image</th>
-                    <th class="th_design">Delete</th>
+                    <th class="th_design">Delivery Status</th>
 
                 </tr>
 
-                @foreach($cart as $cart)
+                @foreach($order as $o)
                     <tr>
-                        <td>{{$cart->product_title}}</td>
+                        <td>{{$o->product_title}}</td>
                     
-                        <td>{{$cart->quantity}}</td>
-                        <td>{{$cart->duration}} week(s)</td>
+                        <td>{{$o->quantity}}</td>
+                        <td>{{$o->duration}} week(s)</td>
                         <td>
-                            <img class="img_size" src="/product/{{$cart->image}}">
+                            <img class="img_size" src="/product/{{$o->image}}">
                         </td>
-                        <td><a class="btn btn-danger" onclick = "return confirm('For sure?')" href="{{url('delete_cart',$cart->id)}}">Delete</a></td>
+                        <td>{{$o->delivery_status}}</td>
+                        
                     </tr>
                 @endforeach
 
 
             </table>
             <br>
-            <div>
-                <a href="{{url('add_order')}}" class="btn btn-danger">Add to order</a>
-            </div>
 
         </div>
          

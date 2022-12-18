@@ -67,5 +67,13 @@ Route::get('/search', [HomeController::class, 'search']);
 
 Route::post('/search_author', [HomeController::class, 'search_author']);
 
+Route::get('/view_users', [AdminController::class, 'view_users']);
+
+Route::get('/delete_user/{id}', [AdminController::class, 'delete_user']);
+
+Route::get('/add_order', [HomeController::class, 'add_order']);
+
+Route::get('/show_order', [HomeController::class, 'show_order']);
+
 
 
