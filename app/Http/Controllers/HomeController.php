@@ -14,6 +14,10 @@ use App\Models\Cart;
 
 use App\Models\Order;
 
+use Session;
+
+use Stripe;
+
 class HomeController extends Controller
 {
     // new
@@ -171,4 +175,40 @@ class HomeController extends Controller
         
     }
 
+    public function stripe($pay)
+    {
+        return view('home.stripe',compact('pay'));
+    }
+
+    public function stripePost(Request $request, $pay)
+    {
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+        Stripe\Charge::create ([
+                "amount" => $pay * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Payment Completed." 
+        ]);
+
+        $user = Auth::user();
+        $userid = $user->id;
+        
+        $data = order::where('user_id','=',$userid)->get();
+        
+        foreach($data as $d)
+        {
+
+            $d->payment_status = 'PAID';
+
+            $d->delivery_status = 'processing';
+
+            $d->save();
+            
+        }
+      
+        Session::flash('success', 'Payment successful!');
+              
+        return back();
+    }
 }

@@ -106,6 +106,7 @@
                     <th class="th_design">Quantity</th>
                     <th class="th_design">Duration</th>
                     <th class="th_design" style="padding: 30px">Image</th>
+                    <th class="th_design">Payment Status</th>
                     <th class="th_design">Delivery Status</th>
 
                 </tr>
@@ -119,6 +120,7 @@
                         <td>
                             <img class="img_size" src="/product/{{$o->image}}">
                         </td>
+                        <td>{{$o->payment_status}}</td>
                         <td>{{$o->delivery_status}}</td>
                         
                     </tr>

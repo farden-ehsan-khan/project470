@@ -11,16 +11,16 @@
                               <div class="detail-box">
                                  <h1>
                                     <span>
-                                    Sale 20% Off
+                                    Starting from $10
                                     </span>
                                     <br>
-                                    On Everything
+                                    a month!
                                  </h1>
                                  <p>
                                     Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="{{url('stripe',10)}}" class="btn1">
                                     Shop Now
                                     </a>
                                  </div>
@@ -36,16 +36,16 @@
                               <div class="detail-box">
                                  <h1>
                                     <span>
-                                    Sale 20% Off
+                                    $25 for 3 months
                                     </span>
                                     <br>
-                                    On Everything
+                                    Subscription
                                  </h1>
                                  <p>
                                     Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="{{url('stripe',25)}}" class="btn1">
                                     Shop Now
                                     </a>
                                  </div>
@@ -61,16 +61,16 @@
                               <div class="detail-box">
                                  <h1>
                                     <span>
-                                    Sale 20% Off
+                                    $85 for Yearly
                                     </span>
                                     <br>
-                                    On Everything
+                                    Subscription
                                  </h1>
                                  <p>
                                     Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
+                                    <a href="{{url('stripe',85)}}" class="btn1">
                                     Shop Now
                                     </a>
                                  </div>

@@ -10,6 +10,9 @@ use App\Models\Product;
 
 use App\Models\User;
 
+use App\Models\Order;
+
+
 class AdminController extends Controller
 {
     //
@@ -142,4 +145,34 @@ class AdminController extends Controller
 
     }
 
+    public function view_orders()
+    {
+        $order = order::all();
+        return view('admin.view_orders',compact('order'));
+    }
+
+    public function start_delivery($id)
+    {
+        $data = order::find($id);
+        if($data->delivery_status=="processing" && $data->payment_status=="PAID")
+        {
+            $data->delivery_status="On Route";
+            $data->save();
+            return redirect()->back()->with('message','Sent to delivery');
+        }
+        else
+        {
+            return redirect()->back()->with('message','Payment not cleared, cannot start delivery');
+        }
+        
+    }
+
+    public function remove_delivery($id)
+    {
+        $data = order::find($id);
+        $data->delete();
+        return redirect()->back()->with('message','Order Removed');
+
+        
+    }
 }

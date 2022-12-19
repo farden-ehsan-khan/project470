@@ -71,9 +71,21 @@ Route::get('/view_users', [AdminController::class, 'view_users']);
 
 Route::get('/delete_user/{id}', [AdminController::class, 'delete_user']);
 
+Route::get('/view_orders', [AdminController::class, 'view_orders']);
+
+Route::get('/start_delivery/{id}', [AdminController::class, 'start_delivery']);
+
+Route::get('/remove_delivery/{id}', [AdminController::class, 'remove_delivery']);
+
 Route::get('/add_order', [HomeController::class, 'add_order']);
 
 Route::get('/show_order', [HomeController::class, 'show_order']);
+
+Route::get('/stripe/{pay}', [HomeController::class, 'stripe']);
+
+Route::post('stripe/{pay}', [HomeController::class,'stripePost'])->name('stripe.post');
+
+
 
 
 

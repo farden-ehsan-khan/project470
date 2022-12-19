@@ -8,12 +8,12 @@
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
-                  <span class="count bg-success"></span>
+                  <!-- <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
+                  <span class="count bg-success"></span> -->
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                  <span>Gold Member</span>
+                  <h5 class="mb-0 font-weight-normal">Admin</h5>
+                  <span>Admin Member</span>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -87,6 +87,7 @@
               <span class="menu-title">Category</span>
             </a>
           </li>
+
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('view_users')}}">
               <span class="menu-icon">
@@ -95,5 +96,15 @@
               <span class="menu-title">Users</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('view_orders')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Orders</span>
+            </a>
+          </li>
+
         </ul>
       </nav>
